@@ -23,5 +23,11 @@ module.exports = {
   */
   modules: [
     '@nuxtjs/pwa'
-  ]
+  ],
+  /*
+  * Workbox - service worker
+  */
+  workbox: {
+    dev: true
+  }
 }

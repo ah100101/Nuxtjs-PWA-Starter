@@ -31,6 +31,8 @@
       }
     },
     mounted () {
+      console.log('pwa nuxt')
+
       if (!window.navigator) {
         this.online = false
         return
