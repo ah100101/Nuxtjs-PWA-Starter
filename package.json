@@ -1,30 +1,26 @@
 {
-  "name": "better-give",
+  "name": "vue-client",
   "version": "1.0.0",
   "description": "Nuxt.js project",
   "author": "ah100101 <ah100101@gmail.com>",
   "private": true,
-  "dependencies": {
-    "nuxt": "latest",
-    "@nuxtjs/pwa": "latest"
-  },
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "build:start": "nuxt build && nuxt start",
+    "build:start": "npm run build && npm run start",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "precommit": "npm run lint",
-    "copy": "copyfiles --up 1 dist/**/*.* ../firebase/public"
+    "precommit": "npm run lint"
+  },
+  "dependencies": {
+    "nuxt": "^1.0.0"
   },
   "devDependencies": {
-    "babel-eslint": "^7.1.1",
-    "eslint": "^3.15.0",
-    "eslint-config-standard": "^6.2.1",
-    "eslint-loader": "^1.6.1",
-    "eslint-plugin-html": "^2.0.0",
-    "eslint-plugin-promise": "^3.4.1",
-    "eslint-plugin-standard": "^2.0.1"
+    "babel-eslint": "^8.2.1",
+    "eslint": "^4.15.0",
+    "eslint-friendly-formatter": "^3.0.0",
+    "eslint-loader": "^1.7.1",
+    "eslint-plugin-vue": "^4.0.0"
   }
 }
