@@ -1,7 +1,6 @@
+const workboxPlugin = require('workbox-webpack-plugin')
+
 module.exports = {
-  /*
-  ** Headers of the page
-  */
   head: {
     title: 'vue-client',
     meta: [
@@ -13,17 +12,14 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-  /*
-  ** Customize the progress bar color
-  */
   loading: { color: '#3B8070' },
-  /*
-  ** Build configuration
-  */
   build: {
-    /*
-    ** Run ESLint on save
-    */
+    plugins: [
+      new workboxPlugin.InjectManifest({
+        swSrc: './assets/custom-sw.js',
+        swDest: 'sw.js'
+      })
+    ],
     extend (config, { isDev, isClient }) {
       if (isDev && isClient) {
         config.module.rules.push({
