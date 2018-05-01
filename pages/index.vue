@@ -2,17 +2,7 @@
   section.container
     div
       app-logo
-      h1.title vue-client
-      h2.subtitle Nuxt.js project
-      .links
-        a(
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green") Documentation
-        a(
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey") GitHub
+      h1.title Better Gift
 </template>
 
 <script>
