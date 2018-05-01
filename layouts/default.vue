@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div class='top-nav'></div>
     <nuxt/>
   </div>
 </template>
