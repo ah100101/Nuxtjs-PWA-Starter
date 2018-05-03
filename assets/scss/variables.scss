@@ -1,19 +1,19 @@
 @import "~bulma/sass/utilities/functions.sass";
 @import "~bulma/sass/utilities/initial-variables.sass";
 
-$light-shade:#F6F3F1;
+$light-shade:#F2F4E8;
 $light-shade-inverted: findColorInvert($light-shade);
 
-$light-accent:#CF8C5F;
+$light-accent:#F49E4C;
 $light-accent-inverted: findColorInvert($light-accent);
 
-$brand: #8EABB9;
+$brand: #3B8EA5;
 $brand-inverted: findColorInvert($brand);
 
-$dark-accent: #965947;
+$dark-accent: #13505B;
 $dark-accent-inverted: findColorInvert($dark-accent);
 
-$dark-shade: #3A4356;
+$dark-shade: #040404;
 $dark-shade-inverted: findColorInvert($dark-shade);
 
 $primary: $brand;

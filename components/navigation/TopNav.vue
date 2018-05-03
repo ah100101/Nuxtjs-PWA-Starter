@@ -2,7 +2,7 @@
   .topnav
     nav.navbar.is-fixed-top.is-transparent
       .navbar-brand
-        a.navbar-item.brand-text(href='#') Better Gift
+        a.navbar-item.brand-link(href='#') Better Gift
         .navbar-burger.burger(
           v-on:click='expanded = !expanded'
           v-bind:class='{ "is-active" : expanded }'
@@ -54,16 +54,34 @@ export default {
   font-family: $family-serif;
 
   .navbar {
-    background-color: $light-shade;
+    background-color: $brand;
   }
 }
 
 .navbar-brand {
   font-family: $family-brand;
+  
+  .brand-link, .burger {
+    color: $light-shade;
+  }
+  
+  .brand-link:hover {
+    color: $light-shade;
+  }
 }
 
-.brand-text {
-  color: $brand;
+.navbar-menu {
+  background-color: $brand;
+
+  .navbar-item {
+    color: $light-shade;
+  }
+
+  .navbar-item:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: $light-shade;
+  }
 }
+
 
 </style>

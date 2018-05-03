@@ -31,7 +31,9 @@ export default {
 }
 </script>
 
-<style>
+<style lang='scss'>
+@import '~/assets/scss/variables.scss';
+
 html {
   font-family: "Source Sans Pro";
   font-size: 16px;
@@ -41,5 +43,9 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+}
+  
+body {
+  background-color: $light-shade;
 }
 </style>
