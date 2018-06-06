@@ -2,7 +2,7 @@
   .topnav
     nav.navbar.is-fixed-top.is-transparent
       .navbar-brand
-        a.navbar-item.brand-link(href='#') Better Gift
+        nuxt-link.navbar-item.brand-link(to='/') Better Gift
         .navbar-burger.burger(
           v-on:click='expanded = !expanded'
           v-bind:class='{ "is-active" : expanded }'
@@ -14,8 +14,8 @@
         v-bind:class='{ "is-active" : expanded }'
       )
         .navbar-start
-          a.navbar-item(href='#') Login
-          a.navbar-item(href='#') Signup
+          nuxt-link.navbar-item(to='/login') Login
+          nuxt-link.navbar-item(to='/sign-up') Signup
           a.navbar-item(href='#') About Us
           a.navbar-item(href='#') Contact Us
         .navbar-end
