@@ -1,23 +1,53 @@
 <template lang='pug'>
-div signup
+section.container
+  nav.panel.signup-form
+    p.panel-heading Sign Up
+    .panel-block.is-active
+      label Username
+      .control
+        input.input(type="text" placeholder="")
+    .panel-block
+      label Email
+      .control
+        input.input(type="text" placeholder="")
+    .panel-block
+      label Password
+      .control
+        input.input(type="password" placeholder="")
+    .panel-block
+      button.button.is-primary.is-outlined.is-fullwidth Sign Up
+
 </template>
 
 <script>
 export default {
   asyncData (context) {
-    // called every time before loading the component
-    return { name: 'World' }
-  },
-  fetch () {
-    // The `fetch` method is used to fill the store before rendering the page
-  },
-  head () {
-    // Set Meta Tags for this Page
-  },
-  // and more functionality to discover
+    return 
+    { 
+      
+    }
+  }
 }
 </script>
 
 <style lang='scss'>
+@import '~/assets/scss/variables.scss';
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: $family-serif;
+}
+
+.signup-form {
+  background: white;
+}
+
+label {
+  margin-right: .5rem;
+}
 
 </style>

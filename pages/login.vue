@@ -3,7 +3,7 @@ section.container
   nav.panel.login-form
     p.panel-heading Login
     .panel-block.is-active
-      label Username
+      label Email
       .control
         input.input(type="text" placeholder="")
     .panel-block
@@ -12,6 +12,8 @@ section.container
         input.input(type="password" placeholder="")
     .panel-block
       button.button.is-primary.is-outlined.is-fullwidth Login
+    .panel-block.transparent
+      nuxt-link.button.is-small.is-info(to='/forgot-password') Forgot?
 
 </template>
 
@@ -20,7 +22,7 @@ export default {
   asyncData (context) {
     return 
     { 
-      name: 'World' 
+      
     }
   }
 }
@@ -35,10 +37,16 @@ export default {
   justify-content: center;
   align-items: center;
   text-align: center;
+  font-family: $family-serif;
 }
 
 .login-form {
   background: white;
+}
+
+.transparent {
+  border: 0px;
+  background-color: $light-shade;
 }
 
 label {
