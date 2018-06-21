@@ -1,23 +1,35 @@
 <template lang='pug'>
-div feed
-</template>
+section.container
+  div Feed Here
+
+</template>  
 
 <script>
+import authenticatedMixin from '~/mixins/authenticated.js'
+
 export default {
   asyncData (context) {
-    // called every time before loading the component
-    return { name: 'World' }
+    return 
+    { 
+      
+    }
   },
-  fetch () {
-    // The `fetch` method is used to fill the store before rendering the page
-  },
-  head () {
-    // Set Meta Tags for this Page
-  },
-  // and more functionality to discover
+  mixins: [
+    authenticatedMixin
+  ]
 }
 </script>
 
 <style lang='scss'>
+@import '~/assets/scss/variables.scss';
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: $family-serif;
+}
 
 </style>

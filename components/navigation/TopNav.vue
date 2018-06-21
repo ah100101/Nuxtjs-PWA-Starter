@@ -14,10 +14,11 @@
         v-bind:class='{ "is-active" : expanded }'
       )
         .navbar-start
-          nuxt-link.navbar-item(to='/login') Login
-          nuxt-link.navbar-item(to='/sign-up') Signup
-          a.navbar-item(href='#') About Us
-          a.navbar-item(href='#') Contact Us
+          nuxt-link.navbar-item(
+            v-for='item in navItems'
+            v-html='item.title'
+            v-bind:to='item.url'
+            )
         .navbar-end
           .navbar-item
 </template>
@@ -42,7 +43,9 @@ export default {
 
   },
   computed: {
-
+    navItems: function () {
+      return this.$store.getters['navigation/current']
+    }
   }
 }
 </script>
@@ -82,6 +85,4 @@ export default {
     color: $light-shade;
   }
 }
-
-
 </style>

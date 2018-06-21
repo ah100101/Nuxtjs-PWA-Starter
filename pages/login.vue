@@ -3,7 +3,7 @@ section.container
   nav.panel.login-form
     p.panel-heading Login
     .panel-block.is-active
-      label Email
+      label Username
       .control
         input.input(type="text" placeholder="")
     .panel-block
@@ -18,13 +18,18 @@ section.container
 </template>
 
 <script>
+import unauthenticatedMixin from '~/mixins/unauthenticated.js'
+
 export default {
   asyncData (context) {
     return 
     { 
       
     }
-  }
+  },
+  mixins: [
+    unauthenticatedMixin
+  ]
 }
 </script>
 

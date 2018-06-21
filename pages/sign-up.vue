@@ -20,13 +20,18 @@ section.container
 </template>
 
 <script>
+import unauthenticatedMixin from '~/mixins/unauthenticated.js'
+
 export default {
   asyncData (context) {
     return 
     { 
       
     }
-  }
+  },
+  mixins: [
+    unauthenticatedMixin
+  ]
 }
 </script>
 
