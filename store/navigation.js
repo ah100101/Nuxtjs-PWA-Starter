@@ -7,7 +7,7 @@ export const state = () => ({
       active: false
     },
     {
-      title: 'Signup',
+      title: 'Sign Up',
       url: '/sign-up',
       active: false
     },
