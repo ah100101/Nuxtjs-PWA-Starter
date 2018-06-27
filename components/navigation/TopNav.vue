@@ -16,6 +16,7 @@
         .navbar-start
           nuxt-link.navbar-item(
             v-for='item in navItems'
+            v-bind:key='item.url'
             v-html='item.title'
             v-bind:to='item.url'
             )
