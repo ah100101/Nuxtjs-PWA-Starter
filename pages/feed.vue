@@ -1,43 +1,15 @@
 <template lang='pug'>
-section.container  
-  .card
-    .card-image
-      figure.image.is-4by3
-        img(src='https://bulma.io/images/placeholders/1280x960.png', alt='Placeholder image')
-    .card-content
-      .post-tags.field
-        .control
-          .tags.has-addons
-            span.tag.tag-icon S
-            span.tag.tag-amount 20
-        .control
-          .tags.has-addons
-            span.tag.tag-icon B
-            span.tag.tag-amount 1
-        .control
-          .tags.has-addons
-            span.tag.tag-icon C
-            span.tag.tag-amount 13
-      .media
-        .media-left
-          figure.image.is-48x48
-            img(src='https://bulma.io/images/placeholders/96x96.png', alt='Placeholder image')
-        .media-content
-          p.title.is-4 John Smith
-          p.subtitle.is-6 @johnsmith
-      .content
-        | Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        | Phasellus nec iaculis mauris. 
-        a @bulmaio
-        | .
-        a(href='#') #css
-        a(href='#') #responsive
-        br
-        time(datetime='2016-1-1') Jan 1st 2016 @ 11:09 PM
+section.container
+  .columns.is-centered
+    .column
+      card
+      card
+      card
 </template>  
 
 <script>
 import authenticatedMixin from '~/mixins/authenticated.js'
+import card from '~/components/feed/Card.vue'
 
 export default {
   asyncData (context) {
@@ -48,7 +20,10 @@ export default {
   },
   mixins: [
     authenticatedMixin
-  ]
+  ],
+  components: {
+    card
+  }
 }
 </script>
 
@@ -64,19 +39,6 @@ export default {
   font-family: $family-serif;
 }
 
-.content {
-  text-align: left;
-}
-
-.post-tags {
-  display: flex;
-  justify-content: flex-end;
-
-  .control {
-    box-shadow: 0 5px 6px -6px;
-  }
-}
-
 .tags {
   margin: 0px 5px;
   
@@ -88,7 +50,13 @@ export default {
     background-color: $light-accent;
     color: white;
   }
-}
 
+  .material-icons {
+    font-size: 1rem;
+    height: 1.5rem;
+    padding-left: .5rem;
+    padding-right: .5rem;
+  }
+}
 
 </style>
