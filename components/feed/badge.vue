@@ -48,18 +48,21 @@ export default {
   
   .tag-icon {
     background-color: $light-shade;
+    font-size: 1rem;
+    height: 1.5rem;
+    padding-left: .5rem;
+    padding-right: .5rem;
   }
 
   .tag-amount {
     background-color: $light-accent;
     color: white;
+    font-size: .85rem;
+    height: 1.5rem;
   }
 
   .material-icons {
-    font-size: 1rem;
-    height: 1.5rem;
-    padding-left: .5rem;
-    padding-right: .5rem;
+    
   }
 }
 </style>

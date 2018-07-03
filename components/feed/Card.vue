@@ -4,6 +4,7 @@ section.container
     .card-image
       figure.image.is-1by1
         img(src='https://bulma.io/images/placeholders/1280x960.png', alt='Placeholder image')
+        span.tag.material-icons shopping_basket chevron_right
     .card-content
       .post-tags.field
         badge(icon='starEmpty', score='21')
@@ -28,7 +29,7 @@ section.container
 </template>  
 
 <script>
-import badge from '~/components/feed/badge.vue'
+import badge from '~/components/feed/Badge.vue'
 
 export default {
   asyncData (context) {

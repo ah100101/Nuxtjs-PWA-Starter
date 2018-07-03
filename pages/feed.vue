@@ -1,5 +1,5 @@
 <template lang='pug'>
-section.container
+section.container.feed
   .columns.is-centered
     .column
       card
@@ -39,24 +39,8 @@ export default {
   font-family: $family-serif;
 }
 
-.tags {
-  margin: 0px 5px;
-  
-  .tag-icon {
-    background-color: $light-shade;
-  }
-
-  .tag-amount {
-    background-color: $light-accent;
-    color: white;
-  }
-
-  .material-icons {
-    font-size: 1rem;
-    height: 1.5rem;
-    padding-left: .5rem;
-    padding-right: .5rem;
-  }
+.feed {
+  margin-top: 3.5rem;
 }
 
 </style>
