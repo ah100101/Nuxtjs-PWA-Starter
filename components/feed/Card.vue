@@ -4,7 +4,7 @@ section.container
     .card-image
       figure.image.is-1by1
         img(src='https://bulma.io/images/placeholders/1280x960.png', alt='Placeholder image')
-        span.tag.material-icons shopping_basket chevron_right
+        span.gotopurchase.tag.material-icons shopping_basket chevron_right
     .card-content
       .post-tags.field
         badge(icon='starEmpty', score='21')
@@ -65,6 +65,22 @@ export default {
 
   .control {
     box-shadow: 0 5px 6px -6px;
+  }
+}
+
+figure {
+  .gotopurchase {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 1rem;
+    font-size: 1rem;
+    opacity: .75;
+    cursor: pointer;
+  }
+
+  .gotopurchase:hover {
+    opacity: 1;
   }
 }
 
