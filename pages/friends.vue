@@ -8,23 +8,16 @@ section.friends
             input(class="input" type="text" placeholder="Search current friends")
             span(class="icon is-small is-left")
               i.material-icons search
-      .box.friend
-        article.media
-          .media-left
-            figure.image.is-32x32
-              img(src='https://bulma.io/images/placeholders/128x128.png', alt='Image')
-          .media-content
-            .content
-              .name
-                strong John Smith
-              .name
-                small @johnsmith
-          .media-right
-            div sup
+      listItem
+      listItem
+      listItem
+      listItem
+      listItem
 </template>  
 
 <script>
 import authenticatedMixin from '~/mixins/authenticated.js'
+import listItem from '~/components/friends/ListItem.vue'
 
 export default {
   asyncData (context) {
@@ -37,7 +30,7 @@ export default {
     authenticatedMixin
   ],
   components: {
-    
+    listItem
   }
 }
 </script>
@@ -59,19 +52,6 @@ export default {
 
   .column {
     padding: 0;
-  }
-
-  .box.friend {
-    border-radius: 0px;
-    padding: .5rem;
-
-    img {
-      border-radius: 5px;
-    }
-
-    .name {
-      line-height: 1rem;
-    }
   }
 }
 
