@@ -14,11 +14,11 @@
         v-bind:class='{ "is-active" : expanded }'
       )
         .navbar-start
-          nuxt-link.navbar-item(
+          a.navbar-item(
             v-for='item in navItems'
             v-bind:key='item.url'
             v-html='item.title'
-            v-bind:to='item.url'
+            v-on:click='sendTo(item.url)'
             )
         .navbar-end
           .navbar-item
@@ -41,7 +41,12 @@ export default {
 
   },
   methods: {
-
+    sendTo: function (route) {
+      this.expanded = false
+      this.$router.push({
+        path: route
+      })
+    }
   },
   computed: {
     navItems: function () {

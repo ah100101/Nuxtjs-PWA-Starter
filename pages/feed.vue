@@ -30,16 +30,13 @@ export default {
 <style lang='scss'>
 @import '~/assets/scss/variables.scss';
 
-.container {
+.feed {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   font-family: $family-serif;
-}
-
-.feed {
   margin-top: 3.5rem;
 }
 

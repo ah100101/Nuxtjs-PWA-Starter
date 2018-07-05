@@ -39,20 +39,18 @@ export default {
 <style lang='scss'>
 @import '~/assets/scss/variables.scss';
 
-  a.gotopurchase {
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin: 1rem;
-    font-size: 1rem;
-    opacity: .75;
-    cursor: pointer;
-  }
+a.gotopurchase {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 1rem;
+  font-size: 1rem;
+  opacity: .75;
+  cursor: pointer;
+}
 
-  a.gotopurchase:hover {
-    opacity: 1;
-    text-decoration: none;
-  }
-
-
+a.gotopurchase:hover {
+  opacity: 1;
+  text-decoration: none;
+}
 </style>
