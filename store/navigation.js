@@ -39,6 +39,11 @@ export const state = () => ({
       active: false
     },
     {
+      title: 'Find',
+      url: '/find',
+      active: false
+    },
+    {
       title: 'Logout',
       url: '/logout',
       active: false
@@ -52,6 +57,12 @@ export const getters = {
   }
 }
 
+export const actions = {
+  setNavigation (context, navigation) {
+    context.commit('setNavigation', navigation)
+  }
+}
+
 export const mutations = {
   setNavigation (state, navigation) {
     if (state[navigation]) {
@@ -59,11 +70,5 @@ export const mutations = {
     } else {
       console.error('invalid navigation key provided: ' + navigation)
     }
-  }
-}
-
-export const actions = {
-  setNavigation (context, navigation) {
-    context.commit('setNavigation', navigation)
   }
 }

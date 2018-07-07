@@ -11,7 +11,7 @@
         .name
           small @johnsmith
     .media-right
-      button.button.is-primary.is-small Following
+      button.button.is-primary.is-small(v-html='followText', v-bind:class='{"is-outlined": !following}')
 </template>  
 
 <script>
@@ -24,11 +24,20 @@ export default {
       
     }
   },
-  mixins: [
-    
+  props: [
+    'following'
   ],
   components: {
     
+  },
+  computed: {
+    followText: function () {
+      if (this.following) {
+        return 'Following'
+      } else {
+        return 'Follow'
+      }
+    }
   }
 }
 </script>
