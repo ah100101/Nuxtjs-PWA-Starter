@@ -13,6 +13,8 @@ section.friends
       listItem
       listItem
       listItem
+      .link-to-search
+        nuxt-link.button.is-primary(to='/search') Find Friends
 </template>  
 
 <script>
@@ -52,6 +54,10 @@ export default {
 
   .column {
     padding: 0;
+  }
+
+  .link-to-search {
+    padding: 1rem;
   }
 }
 
