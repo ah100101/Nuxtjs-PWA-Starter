@@ -1,6 +1,20 @@
 <template lang='pug'>
-section.post
-    | Post a product
+section.container.post
+  .columns.is-centered
+    .column
+      .post-form
+        .field
+          label.label Gift Url
+          .control
+            input.input.is-success(type="text" placeholder="")
+        .field
+          label.label Message
+          .control
+            textarea.textarea(placeholder="")
+        .field.is-grouped
+          .control.submit
+            button.button.is-primary Post
+  
 </template>  
 
 <script>
@@ -28,9 +42,6 @@ export default {
 .post {
   min-height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
   font-family: $family-serif;
 
   .columns {
@@ -39,7 +50,20 @@ export default {
   }
 
   .column {
-    padding: 0;
+    padding: 1rem;
+  }
+
+  .post-form {
+    margin-top: 3.5rem;
+    font-weight: initial;
+  }
+
+  .submit {
+    width: 100%;
+
+    .button {
+      width: inherit;
+    }
   }
 }
 
