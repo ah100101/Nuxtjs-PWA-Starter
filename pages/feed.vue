@@ -37,7 +37,7 @@ export default {
   align-items: center;
   text-align: center;
   font-family: $family-serif;
-  margin-top: 3.5rem;
+  margin-top: 3.25rem;
 }
 
 </style>

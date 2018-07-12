@@ -40,7 +40,7 @@ export const state = () => ({
     },
     {
       title: 'Find',
-      url: '/find',
+      url: '/search',
       active: false
     },
     {

@@ -54,7 +54,7 @@ export default {
   }
 
   .post-form {
-    margin-top: 3.5rem;
+    margin-top: 3.25rem;
     font-weight: initial;
   }
 

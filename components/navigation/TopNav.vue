@@ -2,7 +2,13 @@
   .topnav
     nav.navbar.is-fixed-top.is-transparent
       .navbar-brand
-        nuxt-link.navbar-item.brand-link(to='/') Better Gift
+        transition(name='bounce')
+          nuxt-link.navbar-item.brand-link(
+            to='/'
+            v-if='!postDisplayed'
+            ) Better Gift
+          .navbar-item(v-else)
+            button.button.is-primary.is-inverted.is-rounded.nav-post Post
         .navbar-burger.burger(
           v-on:click='expanded = !expanded'
           v-bind:class='{ "is-active" : expanded }'
@@ -25,17 +31,30 @@
 </template>
 
 <script>
+const debounce = (fn, time) => {
+  let timeout
+  return function() {
+    const functionCall = () => fn.apply(this, arguments)
+    clearTimeout(timeout)
+    timeout = setTimeout(functionCall, time)
+  }
+}
+
 export default {
   data: () => {
     return {
-      expanded: false
+      expanded: false,
+      postDisplayed: false
     }
   },
   props: [
     
   ],
-  mounted: function() {
-
+  mounted: function () {
+    window.addEventListener('scroll', debounce(this.handleScroll, 500))
+  },
+  destroyed: function () {
+    window.removeEventListener('scroll', debounce(this.handleScroll, 500))
   },
   components: {
 
@@ -46,6 +65,13 @@ export default {
       this.$router.push({
         path: route
       })
+    },
+    handleScroll: function () {
+      if (window.scrollY !== 0) {
+        this.postDisplayed = true
+      } else if (this.postDisplayed) {
+        this.postDisplayed = false
+      }
     }
   },
   computed: {
@@ -64,6 +90,11 @@ export default {
 
   .navbar {
     background-color: $brand;
+  }
+
+  .button.nav-post {
+    font-family: $family-brand;
+    background-color: $light-shade;
   }
 }
 
@@ -91,4 +122,23 @@ export default {
     color: $light-shade;
   }
 }
+
+.bounce-enter-active {
+  animation: bounce-in .5s;
+}
+.bounce-leave-active {
+  animation: bounce-in 0s reverse;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 </style>
