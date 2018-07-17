@@ -8,7 +8,9 @@
             v-if='!postDisplayed'
             ) Better Gift
           .navbar-item(v-else)
-            button.button.is-primary.is-inverted.is-rounded.nav-post Post
+            button.button.is-primary.is-inverted.is-rounded.nav-post(
+              v-on:click='showPostModal = true'
+            ) Post
         .navbar-burger.burger(
           v-on:click='expanded = !expanded'
           v-bind:class='{ "is-active" : expanded }'
@@ -28,9 +30,15 @@
             )
         .navbar-end
           .navbar-item
+    modal(
+      v-on:close='showPostModal = false', 
+      v-bind:show='showPostModal'
+      )
 </template>
 
 <script>
+import modal from './PostModal.vue'
+
 const debounce = (fn, time) => {
   let timeout
   return function() {
@@ -44,7 +52,8 @@ export default {
   data: () => {
     return {
       expanded: false,
-      postDisplayed: false
+      postDisplayed: false,
+      showPostModal: false
     }
   },
   props: [
@@ -57,7 +66,7 @@ export default {
     window.removeEventListener('scroll', debounce(this.handleScroll, 500))
   },
   components: {
-
+    modal
   },
   methods: {
     sendTo: function (route) {
