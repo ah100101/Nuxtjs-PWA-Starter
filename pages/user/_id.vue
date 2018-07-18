@@ -13,8 +13,6 @@ section.container
         .content
           | Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           | Phasellus nec iaculis mauris. 
-          a @bulmaio
-          | .
   .user-feed
     .columns.is-centered
       .column
