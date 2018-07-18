@@ -1,7 +1,7 @@
 <template lang='pug'>
   .post-modal
     .modal(v-bind:class='{ "is-active": show }')
-      .modal-background
+      .modal-background(v-on:click='close()')
       .modal-card
         section.modal-card-body.modal-form
           .field
