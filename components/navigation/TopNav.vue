@@ -1,35 +1,37 @@
 <template lang='pug'>
   .topnav
     nav.navbar.is-fixed-top.is-transparent
-      .navbar-brand
-        transition(name='bounce')
-          nuxt-link.navbar-item.brand-link(
-            to='/'
-            v-if='!postDisplayed'
-            ) Better Gift
-          .navbar-item(v-else)
-            button.button.is-primary.is-inverted.is-rounded.nav-post(
-              v-on:click='showPostModal = true'
-            ) Post
-        .navbar-burger.burger(
-          v-on:click='expanded = !expanded'
+      .navbar-overlay(v-show='expanded' v-on:click='expanded = false')
+      .navbar-content
+        .navbar-brand
+          transition(name='bounce')
+            nuxt-link.navbar-item.brand-link(
+              to='/'
+              v-if='!postDisplayed'
+              ) Better Gift
+            .navbar-item(v-else)
+              button.button.is-primary.is-inverted.is-rounded.nav-post(
+                v-on:click='showPostModal = true'
+              ) Post
+          .navbar-burger.burger(
+            v-on:click='expanded = !expanded'
+            v-bind:class='{ "is-active" : expanded }'
+          )
+            span
+            span
+            span
+        .navbar-menu(
           v-bind:class='{ "is-active" : expanded }'
         )
-          span
-          span
-          span
-      .navbar-menu(
-        v-bind:class='{ "is-active" : expanded }'
-      )
-        .navbar-start
-          a.navbar-item(
-            v-for='item in navItems'
-            v-bind:key='item.url'
-            v-html='item.title'
-            v-on:click='sendTo(item.url)'
-            )
-        .navbar-end
-          .navbar-item
+          .navbar-start
+            a.navbar-item(
+              v-for='item in navItems'
+              v-bind:key='item.url'
+              v-html='item.title'
+              v-on:click='sendTo(item.url)'
+              )
+          .navbar-end
+            .navbar-item
     modal(
       v-on:close='showPostModal = false', 
       v-bind:show='showPostModal'
@@ -60,6 +62,7 @@ export default {
     
   ],
   mounted: function () {
+    this.handleScroll()
     window.addEventListener('scroll', debounce(this.handleScroll, 500))
   },
   destroyed: function () {
@@ -109,7 +112,8 @@ export default {
 
 .navbar-brand {
   font-family: $family-brand;
-  
+  background-color: $brand;
+
   .brand-link, .burger {
     color: $light-shade;
   }
@@ -130,6 +134,25 @@ export default {
     background-color: rgba(0, 0, 0, 0.05);
     color: $light-shade;
   }
+}
+
+.navbar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,.5);
+  z-index: 0;
+}
+
+.navbar-content {
+  z-index: 1;
+  position: relative;
+}
+
+.modal-background {
+  background-color: rgba(0, 0, 0, .5);
 }
 
 .bounce-enter-active {
