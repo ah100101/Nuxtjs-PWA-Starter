@@ -1,5 +1,11 @@
 const workboxPlugin = require('workbox-webpack-plugin')
 const GoogleFontsPlugin = require('google-fonts-webpack-plugin')
+const webpack = require('webpack')
+
+const workbox = new workboxPlugin.InjectManifest({
+  swSrc: './assets/custom-sw.js',
+  swDest: 'sw.js'
+})
 
 const googleFontsPlugin = new GoogleFontsPlugin({
   fonts: [
@@ -26,16 +32,29 @@ module.exports = {
   ],
   loading: { color: '#3B8070' },
   build: {
+    vendor: [
+      'workbox-webpack-plugin',
+      'google-fonts-webpack-plugin'
+    ],
     extractCSS: true,
     postcss: { plugins: { 'postcss-custom-properties': false } },
     plugins: [
-      new workboxPlugin.InjectManifest({
-        swSrc: './assets/custom-sw.js',
-        swDest: 'sw.js'
-      }),
-      googleFontsPlugin
+      workbox,
+      googleFontsPlugin,
+      new webpack.NormalModuleReplacementPlugin(
+        /\/iconv-loader$/, 'node-noop',
+      )
     ],
-    extend (config, { isDev, isClient }) {
+    extend (config, { isDev, isClient, isServer }) {
+      config.node = {
+        fs: 'empty',
+        'fs-extra': 'empty',
+        net: 'empty'
+      }
+      config.externals = {
+        'fs-extra': '{}',
+        'graceful-fs': '{}'
+      }
       if (isDev && isClient) {
         config.module.rules.push({
           enforce: 'pre',
@@ -44,10 +63,12 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
+      if (isServer) {
+
+      }
     }
   },
-  mode: 'spa',
   plugins: [
-    '~/plugins/workbox-plugin.js'
+    { src: '~/plugins/workbox-plugin.js', ssr: false }
   ]
 }
