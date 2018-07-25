@@ -12,6 +12,9 @@
     "generate": "nuxt generate",
     "copy": "ncp ./dist ../firebase/public",
     "generate:copy": "npm run generate && npm run copy",
+    "generate:sw": "workbox generateSW",
+    "generate:pwa": "npm run build && npm run generate:sw",
+    "start:pwa": "npm run build && npm run generate:sw && npm run start",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint"
   },
@@ -32,6 +35,7 @@
     "eslint-plugin-vue": "^4.0.0",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.0.3",
+    "workbox-cli": "^3.4.1",
     "workbox-webpack-plugin": "^3.1.0"
   }
 }
