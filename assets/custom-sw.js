@@ -18,8 +18,6 @@ workbox.routing.registerRoute(
   workbox.strategies.staleWhileRevalidate()
 )
 
-// tits
-
 // self.addEventListener('push', (event) => {
 //   const title = 'Get Started With Workbox'
 //   const options = {
