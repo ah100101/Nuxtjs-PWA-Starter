@@ -1,4 +1,4 @@
-# Nuxt.js PWA Example
+# Nuxt.js PWA Starter
 
 Sample Nuxt.js PWA project utilizing:
  - Server Side Rendering
