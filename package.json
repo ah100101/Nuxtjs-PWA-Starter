@@ -10,8 +10,6 @@
     "start": "nuxt start",
     "build:start": "npm run build && npm run start",
     "generate": "nuxt generate",
-    "copy": "ncp ./dist ../firebase/public",
-    "generate:copy": "npm run generate && npm run copy",
     "generate:sw": "workbox injectManifest",
     "generate:pwa": "npm run build && npm run generate:sw",
     "start:pwa": "npm run build && npm run generate:sw && npm run start",
